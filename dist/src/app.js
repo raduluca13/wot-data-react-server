@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.io = exports.PORT = void 0;
-exports.PORT = 5555;
+exports.PORT = process.env.PORT || 5555;
+const INDEX = '/index.html';
 exports.io = require("socket.io")(exports.PORT);
 console.log("server created");
 const DEFAULT_ROOM = 333;
