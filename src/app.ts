@@ -1,5 +1,7 @@
 
-export const PORT = 5555
+export const PORT = process.env.PORT || 5555
+const INDEX = '/index.html';
+
 export const io = require("socket.io")(PORT)
 console.log("server created")
 const DEFAULT_ROOM = 333;
