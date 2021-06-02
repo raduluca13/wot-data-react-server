@@ -43,7 +43,7 @@ exports.io.on("connection", (socket) => {
         // console.log({ data })
     });
     socket.on("cursorPositionChanged", (cursorPosition) => {
-        console.log(`RECEIVED ${Date.now()} *cursorPositionChanged* event with cursorPosition: ${cursorPosition}`);
+        // console.log(`RECEIVED ${Date.now()} *cursorPositionChanged* event with cursorPosition: ${cursorPosition}`)
         // socket.broadcast.emit("cursorPositionChanged", cursorPosition)
         exports.io.to(DEFAULT_ROOM).emit("cursorPositionChanged", cursorPosition);
         // messageQueue.push({ type: "cursorPositionChanged", payload: cursorPosition })
@@ -52,27 +52,27 @@ exports.io.on("connection", (socket) => {
         // }
     });
     socket.on("markerAdded", (marker) => {
-        console.log(`RECEIVED ${Date.now()} *markerAdded* event with marker: ${marker}`);
+        // console.log(`RECEIVED ${Date.now()} *markerAdded* event with marker: ${marker}`)
         exports.io.to(DEFAULT_ROOM).emit("markerAdded", marker);
-        console.log(`SENT ${Date.now()} *markerAdded* event with marker: ${marker} to room: ${DEFAULT_ROOM}`);
+        // console.log(`SENT ${Date.now()} *markerAdded* event with marker: ${marker} to room: ${DEFAULT_ROOM}`)
     });
     socket.on("clearedMarkers", () => {
-        console.log(`RECEIVED ${Date.now()} *clearedMarkers* event`);
+        // console.log(`RECEIVED ${Date.now()} *clearedMarkers* event`)
         exports.io.to(DEFAULT_ROOM).emit("clearedMarkers");
-        console.log(`SENT ${Date.now()} *clearedMarkers* event`);
+        // console.log(`SENT ${Date.now()} *clearedMarkers* event`)
     });
     socket.on("selectedToolChanged", (data) => {
-        console.log(`RECEIVED ${Date.now()} *selectedToolChanged* event with params: ${data}`);
+        // console.log(`RECEIVED ${Date.now()} *selectedToolChanged* event with params: ${data}`)
         exports.io.to(DEFAULT_ROOM).emit("selectedToolChanged", data);
-        console.log(`SENT ${Date.now()} *selectedToolChanged* event with params: ${data}`);
+        // console.log(`SENT ${Date.now()} *selectedToolChanged* event with params: ${data}`)
     });
     socket.on("mapChanged", (mapName) => {
-        console.log(`RECEIVED ${Date.now()} *mapChanged* event with mapName: ${mapName}`);
+        // console.log(`RECEIVED ${Date.now()} *mapChanged* event with mapName: ${mapName}`)
         exports.io.to(DEFAULT_ROOM).emit("mapChanged", mapName);
-        console.log(`SENT ${Date.now()} *mapChanged* event with mapName: ${mapName} to room: ${DEFAULT_ROOM}`);
+        // console.log(`SENT ${Date.now()} *mapChanged* event with mapName: ${mapName} to room: ${DEFAULT_ROOM}`)
     });
     socket.on("disconnect", (reason) => {
-        console.log("disconnected: ", { reason });
+        // console.log("disconnected: ", { reason })
         // console.log(io.sockets.sockets);
     });
 });
